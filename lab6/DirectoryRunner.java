@@ -16,7 +16,19 @@ public class DirectoryRunner {
 		sysDir.add(new File ("arp.exe"));
 		rootDirectory.showDirectory("");
 		rootDirectory.add(new File("ReadMe.txt"));
+		rootDirectory.del("ReadMe.txt");
+		rootDirectory.del("Windows");
+		rootDirectory.del("NotExist");
+
+		/* For StackOverflow
+		sysDir.add(winDir);
+		rootDirectory.showDirectory("");
+		*/
+		
+		/* For ClassCastException
 		AudioFile audioFile=(AudioFile) new File("audio.mp3");
 		audioFile.Play();
+		*/
+
 	}
 }

@@ -1,21 +1,23 @@
 package ua.goit.andre.lab6;
 
+import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
 public class Directory extends DirectoryItem{
-	TreeMap <String, DirectoryItem> entries;
+	HashMap <String, DirectoryItem> entries;
 
 	public Directory (String name) {
 		super(name);
-		entries=new TreeMap <String, DirectoryItem>();
+		entries=new HashMap <String, DirectoryItem>();
 	}
 	
 	public void  add(DirectoryItem name){
 		if (entries.containsKey(name.getName())) {
 			try {
-				throw new FileAlreadyExist(name.getName());
-			} catch (FileAlreadyExist e) {
+				throw new FileAlreadyExistException(name.getName());
+			} catch (FileAlreadyExistException e) {
 				System.out.println("Error!!! File or Directory " + e.getFileName() + " already exists");
 			}
 		} else {
@@ -25,7 +27,31 @@ public class Directory extends DirectoryItem{
 	
 	
 	public void  del(String name) {
-		entries.remove(name);
+		DirectoryItem toDel=entries.get(name);
+		if (null==toDel) try {
+			throw new FileNotFoundException();
+		} catch (FileNotFoundException e) {
+			System.out.println("File or directory not Found!!!");
+			
+			/* For  NullPointerException
+			System.out.println(toDel.getName());
+			*/
+			
+		} else {
+			if (Directory.class.equals(toDel.getClass())) {
+				Directory toDelDir=(Directory)toDel;
+				if (toDelDir.entries.isEmpty()) {
+					entries.remove(name);
+				}
+				else {
+					try {
+						throw new DirectoryNotEmptyException(toDelDir.getName());
+					} catch (DirectoryNotEmptyException e) {
+						System.out.println("Error!!! Directory " + e.getFileName() + " not empty");
+					}
+				}
+			} else entries.remove(name);
+		}
 	}
 	
 	public void showDirectory(String prefix) {
