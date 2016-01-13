@@ -1,4 +1,4 @@
-package file;
+package ua.goit.andre.lab3.file;
 
 public class ImageFile extends File{
 	
