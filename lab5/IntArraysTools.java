@@ -2,7 +2,7 @@ package ua.goit.andre.lab5;
 
 public class IntArraysTools {
 
-	public static int minArrayValue(final int[] arr) {
+	public static int getMinArrayValue(final int[] arr) {
 		int minIndex = 0;
 		for (int i = 1; i < arr.length; i++) {
 			if (arr[i] < arr[minIndex]) minIndex = i; 
@@ -10,7 +10,7 @@ public class IntArraysTools {
 		return arr[minIndex];
 	}
 	
-	public static int maxArrayValue(final int[] arr) {
+	public static int getMaxArrayValue(final int[] arr) {
 		int maxIndex = 0;
 		for (int i = 1; i < arr.length; i++) {
 			if (arr[i] > arr[maxIndex]) maxIndex = i; 
