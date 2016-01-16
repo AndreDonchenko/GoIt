@@ -6,4 +6,11 @@ public class ImageFile extends File{
 		
 	}
 
+	@Override
+	public String toString() {
+		return "ImageFile";
+	}
+
+	
+	
 }

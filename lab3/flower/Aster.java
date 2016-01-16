@@ -1,10 +1,11 @@
 package ua.goit.andre.lab3.flower;
 
-public class Rose extends Flower{
+public class Aster extends Flower{
 
 	@Override
 	public String toString() {
-		return "Rose";
+		return "Aster";
 	}
 
+	
 }

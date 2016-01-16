@@ -1,7 +1,7 @@
 package ua.goit.andre.lab3.file;
 
 public class File {
-	private String fileName;
+	private String name;
 	
 
 	public File () {
@@ -10,9 +10,14 @@ public class File {
 	
 	public File(String fn) {
 		super();
-		fileName=fn;
+		name=fn;
 	}
 	
+	@Override
+	public String toString() {
+		return "File";
+	}
+
 	void openFile() {
 		
 	}

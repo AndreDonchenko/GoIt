@@ -8,5 +8,12 @@ public class TextFile extends File {
 	
 	public void writeLine(String s) {
 		
+	}
+
+	@Override
+	public String toString() {
+		return "TextFile";
 	};
+	
+	
 }
