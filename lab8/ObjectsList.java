@@ -30,7 +30,7 @@ public class ObjectsList {
 		}
 	};
 	
-	private int findIndex(Object addedObject, ArrayList list) {
+	private int getIndex(Object addedObject, ArrayList list) {
 		if (list.isEmpty()) return 0; else {
 			for (int i=0; i<list.size(); i++) {
 				if (list.get(i).toString().compareTo(addedObject.toString()) > 0) return i;
@@ -41,13 +41,13 @@ public class ObjectsList {
 
 	public void addSorted(Object addedObject) {
 		if (addedObject instanceof File) {
-			fileList.add(findIndex(addedObject, fileList), (File) addedObject);
+			fileList.add(getIndex(addedObject, fileList), (File) addedObject);
 		}
 		if (addedObject instanceof Flower) {
-			flowerList.add(findIndex(addedObject, flowerList), (Flower)addedObject);
+			flowerList.add(getIndex(addedObject, flowerList), (Flower)addedObject);
 		}
 		if (addedObject instanceof MusicInstrument) {
-			musicList.add(findIndex(addedObject, musicList), (MusicInstrument)addedObject);
+			musicList.add(getIndex(addedObject, musicList), (MusicInstrument)addedObject);
 		}
 	};
 
