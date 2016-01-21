@@ -70,10 +70,8 @@ public class Anagram {
 	
 	
 	public String getAnagramInFile(String word) {
-		for (int j=0; j < words.size(); j++) {
-			if (isAnagram(word, words.get(j))) {
-				return words.get(j);
-			}
+		for (String s: words) {
+			if (isAnagram(word, s)) return s;
 		}
 		return "";
 	}
