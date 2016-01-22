@@ -1,16 +1,10 @@
 package ua.goit.group17.coreexam;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Anagram {
-	private ArrayList<String> words=null;
 
 	public static boolean isAnagram(String str1, String str2){	
 		if (str1.compareToIgnoreCase(str2)==0) return false;
@@ -25,51 +19,29 @@ public class Anagram {
 		if (Arrays.equals(charsStr1, charsStr2)) return true;
 				else return false;
 	}
-	
 
-	public Anagram(String fileName) {
-		Scanner s=null;
-		words = new ArrayList<String>();
-		try {
-			s = new Scanner (new BufferedReader(new FileReader(fileName)));
-			while (s.hasNext()) {
-				words.add(s.next().trim());
-			}
-		} catch (FileNotFoundException e) {
-			/* !!!! ¡ÀŒ  ƒŒƒ≈À¿“‹ !!!!*/
-			e.printStackTrace();
-		} finally {
-			if (s!=null) {
-				s.close();
-			}
-		}	
-	}
-	
-	
-	public List<String> getAnagramFromFile() {
+	public List<String> getAnagramFromList(List<String> words) {
 		LinkedList<String> resultList = new LinkedList<String>();
-		String resultString;
-		boolean isFindAnagram;
+		StringBuilder resultString;
+		boolean isFindAnagram = false;
+		List<String> wordsClone = words;
 		
-		for (int i=0; i < words.size(); i++) {
-			resultString=words.get(i);
+		for (String s1: words) {
+			resultString=new StringBuilder(s1);
 			isFindAnagram=false;
 			
-			for (int j=0; j < words.size(); j++) {
-				if (i!=j) {
-					if (isAnagram(words.get(i), words.get(j))) {
+			for (String s2: wordsClone) {
+					if (isAnagram(s1, s2)) {
 						isFindAnagram = true;
-						resultString = resultString + " - " + words.get(j);
+						resultString.append(", " + s2);
 					}
-				}
 			}
-			if (isFindAnagram) resultList.add(resultString);
+			if (isFindAnagram) resultList.add(resultString.toString());
 		}
 		return resultList;
 	}
 	
-	
-	public String getAnagramInFile(String word) {
+	public String getAnagramInList(List<String> words, String word) {
 		for (String s: words) {
 			if (isAnagram(word, s)) return s;
 		}
