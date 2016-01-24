@@ -12,13 +12,13 @@ public class Runner {
 	private static final String DEFAULT_ANAGRAM_FILE = "d:\\anagram.txt";
 			//"d:\\2.txt";
 			//".\\src\\ua\\goit\\group17\\coreexam\\anagram.txt";
-	private static LinkedList<String> words = new LinkedList<String>();
+	private static LinkedList<String> words = new LinkedList<>();
 	private static String fileName=DEFAULT_ANAGRAM_FILE;
 	
 	
 	private static LinkedList<String> readFile(String fileName) {
 		
-		LinkedList<String> resultWords = new LinkedList<String>();
+		LinkedList<String> resultWords = new LinkedList<>();
 		Scanner inputStrings=null;
 		String [] words;
 		String str;
@@ -41,7 +41,7 @@ public class Runner {
 		return resultWords;
 	}
 	
-	public static void fileErrorMessage() {
+	private static void fileErrorMessage() {
 		System.out.println("Error in file " + fileName + ". Try to use another file!");
 	}
 	
