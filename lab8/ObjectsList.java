@@ -1,6 +1,7 @@
 package ua.goit.andre.lab8;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import ua.goit.andre.lab3.file.File;
 import ua.goit.andre.lab3.flower.Flower;
@@ -51,24 +52,34 @@ public class ObjectsList {
 		}
 	};
 
-	public void showList() {
-		System.out.print("| FileList              ");
+	public LinkedList<String> getList() {
+		 
+		LinkedList<String> resultList = new LinkedList<String>();
+		
+		final String OUT_FORMAT = "| %-12s ";
+		
+		StringBuilder str = new StringBuilder().append("| FileList              ");
 		for (File f : fileList) {
-			System.out.printf("| %-12s ", f.toString());
+			str.append(String.format(OUT_FORMAT, f.toString()));
 		}
-		System.out.println("|");
+		str.append("|");
+		resultList.add(str.toString());
 		
-		System.out.print("| Flower List           ");
+		str = new StringBuilder().append("| Flower List           ");
 		for (Flower f : flowerList) {
-			System.out.printf("| %-12s ", f.toString());
+			str.append(String.format(OUT_FORMAT, f.toString()));
 		}
-		System.out.println("|");
+		str.append("|");
+		resultList.add(str.toString());
 		
-		System.out.print("| Music Instrument List ");
+		str = new StringBuilder().append("| Music Instrument List ");
 		for (MusicInstrument m : musicList) {
-			System.out.printf("| %-12s ", m.toString());
+			str.append(String.format(OUT_FORMAT, m.toString()));
 		}
-		System.out.println("|");
+		str.append("|");
+		resultList.add(str.toString());
+		
+		return resultList;
 	}
 
 }

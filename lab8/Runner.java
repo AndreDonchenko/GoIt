@@ -5,10 +5,19 @@ import ua.goit.andre.lab3.flower.*;
 import ua.goit.andre.lab3.music.*;
 
 public class Runner {
+	static ObjectsList objectsList;
+	
+	
+	public static void showList() {
+		for (String s : objectsList.getList()) {
+			System.out.println(s);
+		}
+	}
+	
 	public static void main(String[] args) {
 		
 		System.out.println("*** Objects list: ***");
-		ObjectsList objectsList=new ObjectsList();
+		objectsList=new ObjectsList();
 		objectsList.add(new TextFile());
 		objectsList.add(new ImageFile());
 		objectsList.add(new AudioFile());
@@ -22,8 +31,7 @@ public class Runner {
 		objectsList.add(new Trumpet());
 		objectsList.add(new Guitar());
 
-		objectsList.showList();
-
+		showList();
 		
 		System.out.println();
 		System.out.println("*** Soted Objects list: ***");
@@ -42,6 +50,6 @@ public class Runner {
 		objectsList.addSorted(new Guitar());
 		objectsList.addSorted(new Trumpet());
 
-		objectsList.showList();
+		showList();
 	}
 }
