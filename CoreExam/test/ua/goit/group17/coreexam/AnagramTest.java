@@ -18,7 +18,9 @@ public class AnagramTest {
     @Test
     public void testIsAnagram() throws Exception {
         Assert.assertTrue(Anagram.isAnagram("Апельсин","Спаниель"));
+        Assert.assertTrue(Anagram.isAnagram("А роза упала на лапу азора","Ароза упал ан алапу азор а"));
         Assert.assertFalse(Anagram.isAnagram("Апельсин","Спниель"));
+
     }
 
     @Before
