@@ -10,8 +10,6 @@ import java.util.Scanner;
 
 public class Runner {
 	private static final String DEFAULT_ANAGRAM_FILE = "anagram.txt";
-			//"d:\\2.txt";
-			//".\\src\\ua\\goit\\group17\\coreexam\\anagram.txt";
 	private static LinkedList<String> words = new LinkedList<>();
 	private static String fileName=DEFAULT_ANAGRAM_FILE;
 	
@@ -53,8 +51,8 @@ public class Runner {
 
 			System.out.println(">>> Anagram search program <<<");
 			System.out.println("1. Select file to search anagrams. Current file:" + fileName);
-			System.out.println("2. Search Anagrams in current file " + fileName);
-			System.out.println("3. Search anagrams for entered word in file " + fileName);
+			System.out.println("2. Search Anagrams in current file: " + fileName);
+			System.out.println("3. Search anagrams for entered word in file: " + fileName);
 			System.out.println("0. Exit");
 			System.out.print("Please choose:");
 

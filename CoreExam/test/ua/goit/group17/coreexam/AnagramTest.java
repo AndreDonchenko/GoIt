@@ -7,13 +7,18 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Andre on 30.01.2016.
  */
 public class AnagramTest {
     LinkedList wordList;
+
+    @Before
+    public void setUp() throws Exception {
+        wordList = new LinkedList(Arrays.asList(new String[] {
+                "Спаниель", "Апельсин", "error", "read", "dear"
+        }));
+    }
 
     @Test
     public void testIsAnagram() throws Exception {
@@ -21,13 +26,6 @@ public class AnagramTest {
         Assert.assertTrue(Anagram.isAnagram("А роза упала на лапу азора","Ароза упал ан алапу азор а"));
         Assert.assertFalse(Anagram.isAnagram("Апельсин","Спниель"));
 
-    }
-
-    @Before
-    public void setUp() throws Exception {
-        wordList = new LinkedList(Arrays.asList(new String[] {
-                "Спаниель", "Апельсин", "error", "read", "dear"
-        }));
     }
 
     @Test
@@ -46,6 +44,4 @@ public class AnagramTest {
         Assert.assertEquals(Anagram.getAnagramInList(wordList,"Апельсин"),"Спаниель");
         Assert.assertEquals(Anagram.getAnagramInList(wordList,"Чейто"),"");
     }
-
-
 }
